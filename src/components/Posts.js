@@ -8,11 +8,12 @@ class Posts extends Component {
     this.props.fetchPosts();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.newPost) {
-      this.props.posts.unshift(nextProps.newPost);
-    }
-  }
+//when a new property is found in state this will run
+ componentWillReceiveProps(nextProps){
+   if(nextProps.newPost){
+     this.props.posts.unshift(nextProps.newPost)
+   }
+ }
 
   render() {
     const postItems = this.props.posts.map(post => (
@@ -36,3 +37,4 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { fetchPosts })(Posts);
+// bug we are on minute 56
